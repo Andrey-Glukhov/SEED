@@ -184,7 +184,7 @@ home
 }
 .page_block {
   width: 100vw;
-  height: 200vh;
+  height: 600vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,7 +207,7 @@ home
   position: relative;
 }
 .left_overlay {
-  width: 50vw;
+  width:50%;
   height: 100vh;
   position: fixed;
   top:0;
@@ -216,24 +216,41 @@ home
   background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/gate_left-01.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position-x: right;
+  background-position-y: center;
   
   
   z-index: 100;
 }
 .right_overlay {
-  width: 50vw;
+  width: 50%;
   height: 100vh;
   position: fixed;
   top:0;
-  left: 50vw;
+  /* left: 50vw; */
+  right: 0;
   background-color: #ffffff;
   background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/gate_right-01.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position-x: left;
+  background-position-y: center;
   
   z-index: 100;
+}
+
+.nav_svg_block {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+}
+
+#road {
+  width: 100vw;
+  height: 100vh;
 }
 
 #text3336{
