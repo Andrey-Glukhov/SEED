@@ -64,7 +64,6 @@ navigation
   margin: 0;
   padding: 0;
 }
-
 .nav_content li {
   font-family: Poppins;
   display: inline-block;
@@ -217,8 +216,8 @@ home
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  
-  
+
+
   z-index: 100;
 }
 .right_overlay {
@@ -232,7 +231,7 @@ home
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  
+
   z-index: 100;
 }
 
@@ -246,16 +245,115 @@ home
 /*--------------------------------------------------------------
 about
 --------------------------------------------------------------*/
-
+.about_wraper{
+  padding: 0;
+}
+.about-opener{
+  height: 100vh;
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+  margin: 0;
+  background-image: url(http://localhost:8888/sid/wordpress/wp-content/uploads/2020/09/Screenshot-2020-09-19-at-15.54.36.png);
+  background-color: #D3E1CD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#about_house{
+  height: 80vh;
+  width: auto;
+}
+.about-description{
+  min-height: 100vh;
+  height: 100%;
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+  margin: 0;
+  position: relative;
+  z-index: 100;
+}
+.about-description>p{
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: white;
+  padding: 40px 80px;
+}
+.about-team{
+  height: 100vh;
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+  margin: 0;
+  background-color: #CE6149;
+}
+.co-founder_image>img{
+  width: 100%;
+  height: auto;
+}
+.hill_layer_1{
+  width: 100%;
+  height: auto;
+}
+.hill_layer_2{
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 101;
+}
+.hill_layer_3{
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 105;
+}
 /*--------------------------------------------------------------
 menu
 --------------------------------------------------------------*/
 
 
 /*--------------------------------------------------------------
-agenda
+contact
 --------------------------------------------------------------*/
 
+.contact-opener{
+  height: 100vh;
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+  margin: 0;
+  background-color: black;
+}
+.contact-geography>.map>img{
+width: 100%;
+height: auto;
+}
+.contact-geography{
+  min-height: 100vh;
+}
+.letter{
+  display: flex;
+  justify-content: center;
+}
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required{
+  border-bottom: solid black 1px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+.letter_background{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.letter_background>svg{
+width: 80%;
+}
+.letter{
+  background-color: #ce6149;
+  height: 100vh;
+}
 /*--------------------------------------------------------------
 footer
 --------------------------------------------------------------*/

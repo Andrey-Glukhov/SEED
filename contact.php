@@ -1,106 +1,74 @@
 <?php
 /**
-*Template Name: Contact Form
+*Template Name: Contact Page
 */
 ?>
-<?php
-if(isset($_POST['submitted'])) {
-  if(trim($_POST['contactName']) === '') {
-    $nameError = 'Please enter your name.';
-    $hasError = true;
-  } else {
-    $name = trim($_POST['contactName']);
-  }
-
-  if(trim($_POST['email']) === '')  {
-    $emailError = 'Please enter your email address.';
-    $hasError = true;
-  } else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))) {
-    $emailError = 'You entered an invalid email address.';
-    $hasError = true;
-  } else {
-    $email = trim($_POST['email']);
-  }
-
-  if(trim($_POST['comments']) === '') {
-    $commentError = 'Please enter a message.';
-    $hasError = true;
-  } else {
-    if(function_exists('stripslashes')) {
-      $comments = stripslashes(trim($_POST['comments']));
-    } else {
-      $comments = trim($_POST['comments']);
-    }
-  }
-
-  if(!isset($hasError)) {
-    $emailTo = get_option('tz_email');
-    if (!isset($emailTo) || ($emailTo == '') ){
-      $emailTo = get_option('admin_email');
-    }
-    $subject = 'Kit Hire Request '.$name;
-    $body = "Name: $name \n\nEmail: $email \n\nComments: $comments";
-    $headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
-
-    wp_mail($emailTo, $subject, $body, $headers);
-    header("Location: http://89.223.93.201");
-    $emailSent = true;
-  }
-
-} ?>
 <?php get_header(); ?>
-<div class="container contact_wraper">
-  <div class="content">
+<div class="container-fluid contact_wraper">
+<div class="row contact-opener">
 
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-        <div class="entry-content">
-          <?php if(isset($emailSent) && $emailSent == true) {
-            } else { ?>
-                <?php if(isset($hasError) || isset($captchaError) ) { ?>
-                    <div class="Note Failure hideit">
-                    <p><strong>FAILURE: </strong>Error submitting the message.</p>
-                    </div>
-                <?php } ?>
+</div>
+<div class="row contact-geography">
+  <div class="col-md-6">
+<p>Morbi luctus pellentesque sagittis. Curabitur suscipit viverra nibh, ut luctus purus cursus at.
+Integer rhoncus blandit velit, sit amet mattis dolor. Duis sed dignissim dolor.
+Vivamus malesuada fringilla placerat. Ut quis maximus purus. Nulla facilisi.
+Aliquam augue est, egestas at magna et, porta mollis justo.
+Aliquam tempor tristique imperdiet.</p>
+  </div>
+  <div class="col-md-6 map">
+    <img src="http://localhost:8888/sid/wordpress/wp-content/uploads/2020/09/56e5becd1b2e222771b78cf7a7fe7fe8.jpg">
+  </div>
+</div>
+<div class="row contact-form">
+<div class="col-12 letter">
+  <div class="letter_background">
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 985.65 838.17">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
 
-              <form action="<?php the_permalink(); ?>" id="contactForm" method="post">
-                <ul class="contactform">
-                  <li class = "row form-group">
-                    <label class = "col-12" style="padding-left: 0;" for="contactName">Name:</label><br>
-                    <input class = "col-12 form-control" type="text" name="contactName" id="contactName" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="required requiredField" />
-                    <?php if($nameError != '') { ?>
-                      <span class="error"><?=$nameError;?></span>
-                    <?php } ?>
-                  </li>
+      .cls-2 {
+        fill: #231f20;
+      }
 
-                  <li class = "row form-group">
-                    <label class = "col-12" style="padding-left: 0;" for="email">Email</label>
-                    <input class = "col-12 form-control" type="text" name="email" id="email" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="required requiredField email" />
-                    <?php if($emailError != '') { ?>
-                      <span class="error"><?=$emailError;?></span>
-                    <?php } ?>
-                  </li>
+      .cls-3 {
+        fill: #0a6149;
+      }
 
-                  <li class = "row form-group">
-                    <label class = "col-12" style="padding-left: 0;" for="commentsText">Message:</label>
-                    <textarea class = "col-12 form-control" name="comments" id="commentsText" rows="6" cols="60" class="required requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
-                    <?php if($commentError != '') { ?>
-                      <span class="error"><?=$commentError;?></span>
-                    <?php } ?>
-                  </li>
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M1073.38,935.16C1026.21,936.84,949.21,927.1,893,920c-9.44-1.2-18.19-2.3-26-3.25-54.05-6.58-88.5-4.55-155.16.26-54.13,3.91-149.48,5.5-178.25,5.9-.12-42-.73-228-1.81-284.92-.53-28-3-77-5.64-128.88-3.44-68-7-138.26-6.43-166.7.79-40,7.35-94.7,9.87-114.44,27.34.92,121.21,4.24,160.45,7.73,34.54,3.07,90.27,4.23,139.43,5.25,18.19.38,35.36.74,50.67,1.17,58.6,1.65,120.54-2,174-5.55,16.18-1.07,34.85-2.76,54.61-4.55,48.1-4.35,102.62-9.28,135.22-6.38,46.32,4.12,132.37,4.84,159.54,3.64,19.35-.84,48.79,3.18,61.4,5.09,2.11,16.41,7.53,62.81,6.86,101.41-.38,21.84-1.52,52.74-2.74,85.44-1.51,40.52-3.22,86.45-3.92,126.81-1,60.51,1,181,1.79,220-15.85-6.24-44.52-17.74-64-26.9-30.27-14.25-61.29-24.77-90.3-34-13.38-4.26-27.23-7.36-37.89-1.27-9.64,5.51-13.13,16.55-14.92,24.37-1.39,6.07-3.11,13.4-5.09,21.89-4.4,18.77-9.87,42.13-16.09,70.18-5.71,25.7-20.3,90.89-25,111.86C1191.46,934,1120.07,933.49,1073.38,935.16Z" transform="translate(-502.89 -113.92)"/>
+  <path class="cls-2" d="M1483.85,780.2c0-1.59-3.29-159.72-2-231.88.7-40.2,2.4-86,3.9-126.47,1.22-32.8,2.38-63.77,2.76-85.78.85-48.88-7.5-107.7-7.85-110.18l-.87-6-6-1c-1.79-.3-44.15-7.44-71-6.27s-111.65.47-157.33-3.59c-34.09-3-89.41,2-138.21,6.38-19.66,1.78-38.23,3.46-54.21,4.52-53.07,3.53-114.54,7.15-172.41,5.52-15.37-.43-32.57-.79-50.79-1.17-38.75-.81-81.59-1.7-114.62-3.54,1.86-20.22,3.64-40.63,5-59,2.11-28.84-17.92-45.71-38.91-47.58l-.35,0a42.15,42.15,0,0,0-29.68,8.68c-9.23,7.29-14.73,18.18-15.91,31.5l-5.43,61c-6.36-.31-12.81-.6-19.23-.89,2.12-22.86,3.74-39,3.77-39.29l-14.7-1.48c0,.31-1.69,16.82-3.85,40.14-38.77-1.62-72.71-2.71-73.35-2.73l-7.54-.23-1,7.47c-.1.72-10,73.45-11,123.86-.58,29,3,99.61,6.45,167.87,2.61,51.74,5.09,100.61,5.61,128.36,1.22,63.85,1.83,290.82,1.84,293.11l0,8.44,8.45-.09c1.22,0,123.24-1.4,187.71-6.06C778.6,929,812.44,927,865,933.37c7.79,1,16.51,2,25.92,3.24,56.79,7.18,134.57,17,183.1,15.29,55.16-2,145.32-.93,146.22-.92l3.1,0,2.38-2c.81-.68,82.33-68.66,125.61-84.89,45.64-17.12,125.69-74.53,129.08-77l3.57-2.57ZM650,155.56c1.77-20,16.18-27.85,29.68-26.76l.28,0c18.94,1.69,26.47,17.62,25.43,31.78-1.34,18.38-3.13,38.84-5,59.13-3.11-.22-6.1-.46-8.92-.71s-5.63-.48-8.77-.71c1.51-14.48,2.69-25.33,2.72-25.55l-14.69-1.6c0,.23-1.24,11.35-2.78,26.14-7.26-.45-15.14-.9-23.34-1.33Zm-6.86,77.1c8.12.42,15.91.86,23.1,1.31-1.19,11.76-2.4,24.09-3.31,34.34s-7.08,14.15-12.82,13.64c-5.19-.46-10.92-4.84-10-15.66Zm-14.77-.74L625.45,265c-1.71,19.28,10.46,30.54,23.37,31.69s27.13-7.76,28.85-27.05c.92-10.33,2.14-22.8,3.34-34.65,3.24.24,6.26.48,9,.73s5.78.49,8.86.71c-.64,6.85-1.28,13.62-1.91,20.19-1.39,14.75-2.71,28.68-3.77,40.62-1.6,17.95-26.07,26.74-48.8,24.86-19.52-1.61-41.73-11.52-40-34.18,1.45-19.18,3.15-39.15,4.74-56.86C615.55,231.32,622,231.62,628.39,231.92Zm717,616.54c-33,12.39-84.23,50.83-111.68,72.52,6.31-28.23,16.64-74.38,21.22-95,6.21-28,11.67-51.26,16-70,2-8.52,3.72-15.89,5.11-22,1.7-7.44,4-11.88,6.9-13.56,3.93-2.24,11.71-1.39,24.51,2.69,28.46,9.06,58.85,19.35,88.25,33.19,19,8.93,45.69,19.74,62.09,26.21C1433.23,799.52,1378.54,836,1345.41,848.46Zm57.49-107.32c-30.27-14.25-61.29-24.77-90.3-34-13.38-4.26-27.23-7.36-37.89-1.27-9.64,5.51-13.13,16.55-14.92,24.37-1.39,6.07-3.11,13.4-5.09,21.89-4.4,18.77-9.87,42.13-16.09,70.18-5.71,25.7-20.3,90.89-25,111.86-22.15-.2-93.54-.68-140.23,1C1026.21,936.84,949.21,927.1,893,920c-9.44-1.2-18.19-2.3-26-3.25-54.05-6.58-88.5-4.55-155.16.26-54.13,3.91-149.48,5.5-178.25,5.9-.12-42-.73-228-1.81-284.92-.53-28-3-77-5.64-128.88-3.44-68-7-138.26-6.43-166.7.79-40,7.35-94.7,9.87-114.44,12.09.41,37.17,1.28,64.78,2.43-1.57,17.61-3.26,37.38-4.7,56.39-2.35,31.11,24.82,47.47,53,50l.57.05c29.51,2.43,62.22-10.16,64.72-38.28,1.06-11.9,2.38-25.81,3.77-40.53.64-6.72,1.3-13.64,2-20.64,33.45,1.88,76.71,2.78,115.82,3.59,18.19.38,35.36.74,50.67,1.17,58.6,1.65,120.54-2,174-5.55,16.18-1.07,34.85-2.76,54.61-4.55,48.1-4.35,102.62-9.28,135.22-6.38,46.32,4.12,132.37,4.84,159.54,3.64,19.35-.84,48.79,3.18,61.4,5.09,2.11,16.41,7.53,62.81,6.86,101.41-.38,21.84-1.52,52.74-2.74,85.44-1.51,40.52-3.22,86.45-3.92,126.81-1,60.51,1,181,1.79,220C1451,761.8,1422.34,750.3,1402.9,741.14Z" transform="translate(-502.89 -113.92)"/>
+  <path class="cls-3" d="M1345.41,848.46c-33,12.39-84.23,50.83-111.68,72.52,6.31-28.23,16.64-74.38,21.22-95,6.21-28,11.67-51.26,16-70,2-8.52,3.72-15.89,5.11-22,1.7-7.44,4-11.88,6.9-13.56,3.93-2.24,11.71-1.39,24.51,2.69,28.46,9.06,58.85,19.35,88.25,33.19,19,8.93,45.69,19.74,62.09,26.21C1433.23,799.52,1378.54,836,1345.41,848.46Z" transform="translate(-502.89 -113.92)"/>
+  <rect class="cls-4" x="101.4" y="255.44" width="741.51" height="426.09">
+    <foreignObject x="20" y="20" width="160" height="160">
+  <!--
+В контексте SVG, внедренного в HTML, пространство имен XHTML может и следует избегать,
+но это обязательно в контексте документа SVG
+   -->
+    <div xmlns="http://www.w3.org/1999/xhtml">
+    - Смолчал хозяин, да и то, что мог сказать
+    - Мне невдомёк, но во владениях чертога
+    Поможет дом срубить да судьбы вам связать.
+    Не веришь ежли - испроси у Бога...
+    </div>
+  </foreignObject>
+  </rect>
+</svg>
 
-                  <li class = "row">
-                    <button class = "col-12 button_submit" type="submit"> Submit </button>
-                  </li>
-                </ul>
-                <input type="hidden" name="submitted" id="submitted" value="true"/>
-              </form>
-            <?php } ?>
-          </div><!-- .entry-content -->
-        </div><!-- .post -->
 
-      <?php endwhile; endif; ?>
-    </div><!-- #content -->
+  </div>
+  <?php echo do_shortcode( '[contact-form-7 id="63" title="Contact SEED"]' ); ?>
+</div>
+
+</div>
+
   </div>
   </div><!-- #container -->
   <?php get_footer(); ?>
