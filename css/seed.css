@@ -1,5 +1,5 @@
 body, html {
-  width: 100vw;
+  width: 100%;
   height: auto;
   margin: 0;
   padding: 0;
@@ -38,7 +38,7 @@ navigation
   position: fixed;
   margin: 1.2em;
   right: 0;
-  z-index: 1;
+  z-index: 100;
 }
 .united, .group {
   margin: 0 !important;
@@ -47,7 +47,7 @@ navigation
 .group {
   height: 100%;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 .group.overlay {
   background: #076149;
@@ -183,7 +183,7 @@ home
   overflow-x: hidden; */
 }
 .page_block {
-  width: 100vw;
+  width: 100%;
   height: 600vh;
   display: flex;
   flex-direction: column;
@@ -220,7 +220,7 @@ home
   background-position-y: center;
   
   
-  z-index: 100;
+  z-index: 90;
 }
 .right_overlay {
   width: 50%;
@@ -236,7 +236,7 @@ home
   background-position-x: left;
   background-position-y: center;
   
-  z-index: 100;
+  z-index: 90;
 }
 
 .nav_svg_block {
@@ -263,6 +263,24 @@ home
 /*--------------------------------------------------------------
 about
 --------------------------------------------------------------*/
+.about_wrap {
+  overflow:hidden;
+}
+
+.about_popup_1,.about_popup_2{
+  width: 80vw;
+  padding: 15px;
+  border: 3px solid #0000cc;
+  border-radius: 10px;
+  color: #0000cc;
+  position: fixed;
+  z-index: 99;
+  display: none;
+  overflow:hidden;
+  top:10vh;
+  left:10vw;
+  background-color:white;
+}
 
 /*--------------------------------------------------------------
 menu
@@ -288,15 +306,24 @@ responsive
 --------------------------------------------------------------*/
 /*xs*/
 @media only screen and (max-width: 576px) {
-
+  .about_wrap {
+    overflow-x: scroll;
+    height: 100vh;
+  }
 }
 /*sm*/
 @media screen and (min-width: 576px) and (max-width: 768px) {
-
+  .about_wrap {
+    overflow-x: scroll;
+    height: 100vh;
+  }
 }
 /*md*/
 @media screen and (min-width: 768px) and (max-width: 992px){
-
+  .about_wrap {
+    overflow-x: scroll;
+    height: 100vh;
+  }
 }
 
 /*lg*/
