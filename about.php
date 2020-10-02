@@ -550,12 +550,12 @@ Content:
 
 <div class="about_popup_1">
 <?php 
-    echo get_post_meta(get_the_ID(), 'about#1', 1); 
+    the_field('about1'); 
 ?>
 </div>
 <div class="about_popup_2">
 <?php 
-    echo get_post_meta(get_the_ID(), 'about#2', 1); 
+    the_field('about2');
 ?>
 </div>
 <?php endwhile; endif; ?>
