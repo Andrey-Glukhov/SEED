@@ -40,6 +40,9 @@ navigation
   right: 0;
   z-index: 100;
 }
+.menu {
+  z-index: 100;
+}
 .united, .group {
   margin: 0 !important;
   padding: 0 !important;
@@ -199,7 +202,7 @@ home
   align-items: center;
   justify-content: center;
   background: #210891;
-  background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/grass-01.png);
+  background-image: url(http://localhost:8888/sid/wordpress/wp-content/uploads/2020/08/grass-01.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -212,14 +215,14 @@ home
   top:0;
   left: 0;
   background-color: #ffffff;
-  background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/gate_left-01.png);
+  background-image: url(http://localhost:8888/sid/wordpress/wp-content/uploads/2020/08/gate_left-01.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: center;
   
   
-  z-index: 90;
+  z-index: 80;
 }
 .right_overlay {
   width: 50%;
@@ -229,13 +232,13 @@ home
   /* left: 50vw; */
   right: 0;
   background-color: #ffffff;
-  background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/gate_right-01.png);
+  background-image: url(http://localhost:8888/sid/wordpress/wp-content/uploads/2020/08/gate_right-01.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: left;
   background-position-y: center;
   
-  z-index: 90;
+  z-index: 80;
 }
 
 .nav_svg_block {
@@ -337,6 +340,34 @@ footer{
   position: relative;
 }
 
+/*--------------------------------------------------------------
+blog
+--------------------------------------------------------------*/
+.blog_wrap {
+display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.blog_col {
+  z-index: 99;
+}
+
+.blog_background, .blog_foreground {
+  position: absolute;
+  width: 1920px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.blog_foreground {
+  z-index: 99; 
+}
+
 
 /*--------------------------------------------------------------
 responsive
@@ -370,4 +401,33 @@ responsive
 /*xl*/
 @media screen and (min-width: 992px) and (max-width: 1200px) {
 
+}
+/*--------------------------------------------------------------
+animation
+--------------------------------------------------------------*/
+@keyframes change_fill {
+  0% { fill: #49549E; }
+  75% { fill: #1bceb1; }
+  100% { fill: #1bce4f; }
+}
+
+@keyframes bounce {
+  from {
+   transform: translate(0);
+  }
+  25% {
+    transform: translate(10px);
+  }
+  50% {
+    transform: translate(50px);
+  }
+  75% {
+    transform: translate(10px);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+.k1 {
+  animation: bounce 2s infinite ;
 }
