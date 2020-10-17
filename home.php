@@ -50,114 +50,30 @@
         // init controller
         var win_height = $(window).height();
         controller = new ScrollMagic.Controller();
-function createLeft() {
+
+        function createScene(trigger,tweenOffset, tweenObject, tweenParameter) {
         // create a scene
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height, // the scene should last for a scroll distance of 100px
-          offset: 100 // start this scene after scrolling for 50px
-})
-.setTween('.left_overlay',{left:'-50vw'})
-.addIndicators()
-.addTo(controller); // assign the scene to the controller
-}
+          return new ScrollMagic.Scene({
+              triggerElement: trigger,
+              triggerHook: 0.1,
+              duration: win_height, // the scene should last for a scroll distance of 100px
+              offset: tweenOffset // start this scene after scrolling for 50px
+          })
+          .setTween(tweenObject, tweenParameter)
+          .addIndicators()
+          .addTo(controller); // assign the scene to the controller
+        }
 
-function createRight() {
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height,
-          offset: 100
-})
-.setTween('.right_overlay',{right:'-50vw'})
-.addIndicators()
-.addTo(controller);
-}
-function createRoadScene1() {
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height,
-          offset: win_height
-})
-.setTween('#road',{attr: {viewBox: "457 -100 1000 600"}})
-.addIndicators()
-.addTo(controller);
-}
-function createRoadScene2() {
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height,
-          offset: 2*win_height
-})
-.setTween('#road',{attr: {viewBox: "2279 300 1300 900"}})
-.addIndicators()
-.addTo(controller);
-}
+      sceneLeft =  createScene('.page_block',100, '.left_overlay',{left:'-50vw'});
+      sceneRight = createScene('.page_block',100, '.right_overlay',{right:'-50vw'});
+      sceneRoad1 = createScene('.page_block',win_height, '#road',{attr: {viewBox: "457 -100 1000 600"}});
+      sceneRoad2 = createScene('.page_block',2 * win_height, '#road',{attr: {viewBox: "2279 300 1300 900"}});
+      sceneRoad3 = createScene('.page_block',2 * win_height, '#road',{attr: {viewBox: "3600 300 500 400"}});
+      sceneRoad4 = createScene('.page_block',4 * win_height, '#road',{attr: {viewBox: "5486 400 1200 800"}});
+      sceneText1 = createScene('.page_block',win_height, '#txtlabel_1',{opacity:1});
+      sceneText2 = createScene('.page_block',2.5 * win_height, '#txtlabel_2',{opacity:1});
 
- function createRoadScene3() {
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height,
-          offset: 3*win_height
-})
-.setTween('#road',{attr: {viewBox: "3600 300 500 400"}})
-.addIndicators()
-.addTo(controller);
-}
-
-function createRoadScene4() {
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height,
-          offset: 4*win_height
-})
-.setTween('#road',{attr: {viewBox: "5486 400 1200 800"}})
-.addIndicators()
-.addTo(controller);
-}
-
-function createTextScene1() {
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height,
-          offset: win_height
-})
-.setTween('#txtlabel_1',{opacity:1})
-.addIndicators()
-.addTo(controller);
-}
-
-function createTextScene2() {
-return new ScrollMagic.Scene({
-          triggerElement: '.page_block',
-          triggerHook: 0.1,
-          duration: win_height,
-          offset: 2.5*win_height
-})
-.setTween('#txtlabel_2',{opacity:1})
-.addIndicators()
-.addTo(controller);
-}
-
-    sceneLeft = createLeft();
-    sceneRight = createRight();
-    sceneRoad1 = createRoadScene1();
-    sceneRoad2 = createRoadScene2();
-    sceneRoad3 = createRoadScene3();
-    sceneRoad4 = createRoadScene4();
-    sceneText1 = createTextScene1();
-    sceneText2 = createTextScene2();
-
-    // var timeoutDuration = 800;
-    // var resizeTimeout = null;
-
-    $(window).on('resize', function() {
+  $(window).on('resize', function() {
 
         console.log('Resize!');
 
