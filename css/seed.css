@@ -199,7 +199,7 @@ home
   align-items: center;
   justify-content: center;
   background: #210891;
-  background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/grass-01.png);
+  background-image: url(http://localhost:8888/sid/wordpress/wp-content/uploads/2020/08/grass-01.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -212,13 +212,13 @@ home
   top:0;
   left: 0;
   background-color: #ffffff;
-  background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/gate_left-01.png);
+  background-image: url(http://localhost:8888/sid/wordpress/wp-content/uploads/2020/10/gate_left-01.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: center;
-  
-  
+
+
   z-index: 90;
 }
 .right_overlay {
@@ -229,12 +229,12 @@ home
   /* left: 50vw; */
   right: 0;
   background-color: #ffffff;
-  background-image: url(http://192.168.1.5/wptest3/wordpress/wp-content/uploads/2020/08/gate_right-01.png);
+  background-image: url(http://localhost:8888/sid/wordpress/wp-content/uploads/2020/10/gate_right-01.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: left;
   background-position-y: center;
-  
+
   z-index: 90;
 }
 
