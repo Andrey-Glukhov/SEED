@@ -537,26 +537,24 @@ get_header();
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <header class="header">
-<h1 class="entry-title"><?php the_title(); ?></h1> 
+<h1 class="entry-title"><?php the_title(); ?></h1>
 <div class="entry-content">
 <?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
 Content:
-<?php 
-//the_content(); 
+<?php
+//the_content();
 ?>
 </div>
 </article>
 
 
 <div class="about_popup_1">
-<?php 
-    the_field('about1'); 
+<?php
+    the_field('about1');
 ?>
 </div>
 <div class="about_popup_2">
-<?php 
-    the_field('about2');
-?>
+<?php include (TEMPLATEPATH . '/service_part.php'); ?>
 </div>
 <?php endwhile; endif; ?>
 
@@ -571,13 +569,13 @@ $(".about_popup_1").click(function(){
 });
 $(".k2").click(function(){
   $(".about_popup_1").slideUp("2000");
-  $(".about_popup_2").slideDown("2000"); 
+  $(".about_popup_2").slideDown("2000");
  });
 $(".about_popup_2").click(function(){
   $(".about_popup_2").slideUp("2000");
 });
 
-}); 
+});
 </script>
 
 <?php get_footer(); ?>

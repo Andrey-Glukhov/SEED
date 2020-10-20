@@ -222,7 +222,7 @@ home
   background-position-x: right;
   background-position-y: center;
 
-  
+
   z-index: 80;
 }
 .right_overlay {
@@ -270,7 +270,7 @@ about
   overflow:hidden;
 }
 
-.about_popup_1,.about_popup_2{
+.about_popup_1{
   width: 80vw;
   padding: 15px;
   border: 3px solid #0000cc;
@@ -284,12 +284,41 @@ about
   left:10vw;
   background-color:white;
 }
+.about_popup_2{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 99;
+  display: none;
+  overflow:hidden;
+  top:0vh;
+  left:0vw;
+  background-color:white;
+}
 
 /*--------------------------------------------------------------
-menu
+servicies
 --------------------------------------------------------------*/
-
-
+.service_type{
+  height: 100vh;
+  background-color: #ce6149;
+  padding: 60px;
+  color: white;
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.service_type>h1{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 4.2rem;
+  color: white;
+}
+.service_list{
+  height: 100vh;
+  padding: 60px;
+  overflow-y: scroll;
+}
 /*--------------------------------------------------------------
 contact
 --------------------------------------------------------------*/
