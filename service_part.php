@@ -1,79 +1,46 @@
 
 <div class = "services">
   <div class = "container-fluid">
-<div class = "row">
-  <?php $serv = new WP_Query( array( 'page_id' => 86 ) );
-
-if ( $serv->have_posts() ) : while ( $serv->have_posts() ) : $serv->the_post();
-
-
-
-  ?>
-
-
-  <div class = "col-md-6 col-sm-12 service_type">
-    <h1><?php the_title(); ?></h1>
-    <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    <div class = "row">
+      <div class = "col-md-6 col-sm-12 service_type">
+        <h1><?php 
+        the_title();
+        ?></h1>
+        
+      </div>
+      <div class = "col-md-6 col-sm-12 service_list">
+        <div class="row">
+          <div class="col-12">
+            <a class="close_button"><p>Close</p><p>X</p></a>
+          </div>
+        </div>
+        <?php
+        if( have_rows('service_descr') ):  //1-level
+          while( have_rows('service_descr') ) : the_row();
+            echo '<br>-1';
+            the_sub_field('service_title');
+            if( have_rows('service_names') ):  //2-level
+              while( have_rows('service_names') ) : the_row();
+                echo '<br>---2';
+                the_sub_field('single_name');
+                if( have_rows('single_details') ):  //3-level
+                    while( have_rows('single_details') ) : the_row();
+                      echo '<br>------3';
+                      the_sub_field('service_item');
+                      if( have_rows('service_subitems') ):  //4-level
+                        while( have_rows('service_subitems') ) : the_row();
+                          echo '<br>---------4';
+                          the_sub_field('service_line');
+                        endwhile;
+                      endif;   //4-level
+                    endwhile;
+                  endif;   //3-level
+                endwhile;
+              endif;  //2-level
+            endwhile;
+          endif;  //1-level
+          ?>
+      </div>
+    </div>
   </div>
-  </div>
-  <div class = "col-md-6 col-sm-12 service_list">
-
-
-    <h2>Разработка вербального канала коммуникаций</h2>
-    <p>Легенда бренда</p>
-
-<p>Характер бренда (стиль и характер текста, ключевые слова)</p>
-
-<p>Название торговой марки/бренда (Бренд-нейм)</p>
-
-<p>Дескриптор  </p>
-
-<p>Слоган</p>
-
-<h2>Разработка визуального канала коммуникаций (бренл-дизайн)</h2>
-<p>Разработка концепции дизайна  (Визуализация метафоры, создание бренд-персонажа)</p>
-
-<p>Разработка логотипа и/или фирменного знака</p>
-
-<p>Выбор фирменных цветов и их компоновки  (Цветовая гамма для фирменного знака, шрифтов, фонов и т.п)</p>
-
-<p>Легенда бренда</p>
-
-<p>Характер бренда (стиль и характер текста, ключевые слова)</p>
-
-<p>Название торговой марки/бренда (Бренд-нейм)</p>
-
-<p>Дескриптор  </p>
-
-<p>Слоган</p>
-<p>Легенда бренда</p>
-
-<p>Характер бренда (стиль и характер текста, ключевые слова)</p>
-
-<p>Название торговой марки/бренда (Бренд-нейм)</p>
-
-<p>Дескриптор  </p>
-
-<p>Слоган</p>
-<p>Легенда бренда</p>
-
-<p>Характер бренда (стиль и характер текста, ключевые слова)</p>
-
-<p>Название торговой марки/бренда (Бренд-нейм)</p>
-
-<p>Дескриптор  </p>
-
-<p>Слоган</p>
-
-  </div>
-<?php endwhile; ?>
-<?php endif; ?>
-</div>
-
-</div>
-
 </div>

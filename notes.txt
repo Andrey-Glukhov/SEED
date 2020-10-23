@@ -15,3 +15,42 @@
       <path class="cls-1" d="M578.81,340.2c-1,19.29-9.78,29.06-17,33.18-9.26,5.4-18.77,5.66-28.8,5.66H479.27V197.46h61.47a38.12,38.12,0,0,1,25,9C578,217,579.06,230.38,579.06,245.3v84.87C579.06,333.52,579.06,336.86,578.81,340.2Zm-33.18-97.73c0-5.66.26-11.31-4.63-15.43-4.37-3.6-10-3.09-15.17-3.09H512.71v128.6h11.83a58.33,58.33,0,0,0,9.51-.52c10.81-2,11.58-10,11.58-19Z" transform="translate(-143.9 -193.61)"/>
     </g>
   </svg>
+
+  <svg xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.1" viewBox="0 0 1921.95 1170.42" id="about_pic">
+
+ width="1920px" height="1080px"
+
+style="enable-background:new 0 0 1920 1080;" 
+
+_______________________________________
+  <?php if ($lang == 'en-GB')  {
+              echo '.stnven{visibility:visible}'; 
+            } else {
+              echo '.stnven{visibility:hidden}';
+            }
+            if ($lang == 'ru-RU')  {
+              echo '.stnvru{visibility:visible}'; 
+            } else {
+              echo '.stnvru{visibility:hidden}';
+            }    
+  ?>
+ #manifesto,#manifest,#tesimonials_X5F,#otzivy_X5F,#our_x5F_team,#nasha_x5F_komanda, #about_x5F_seed,#pro_x5F_seed,#clients_x5F_partners,#klienty_x5F_partnery{cursor:pointer;}
+
+#sozdanie_x5F_brenda,#hr_x5F_brending,#brand_x5F_support,#podderzka_x5F_brenda,#web_x5F_services,#web_x5F_servisi
+ ____________________________________________
+
+  <?php $serv = new WP_Query( array( 'page_id' => 86 ) );
+
+if ( $serv->have_posts() ) : while ( $serv->have_posts() ) : $serv->the_post();
+
+
+
+  ?>
+
+
+<?php endwhile; ?>
+<?php endif; ?>
+
+
+
+_______________________________

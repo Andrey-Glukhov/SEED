@@ -2,9 +2,9 @@
 /**
  *Template Name: Blog Page
  */
-get_header();?>
-
-
+get_header();
+ $lang=get_bloginfo("language"); 
+?>
 
 <div class="blog_wrap">
   <div class="blog_background">
@@ -2825,7 +2825,7 @@ var  setSize = function() {
 if ($(window).innerHeight() != 0) {
 		screenRatio = $(window).innerWidth()/$(window).innerHeight();
 		console.log(screenRatio);
-		if (screenRatio > 1920/1080) {
+		if (screenRatio > 1.777) {
 			$('.blog_background, .blog_foreground').css('width',$(window).innerWidth() );
 			$('.blog_background, .blog_foreground').css('height',$(window).innerWidth()/1.777);
 		} else {
