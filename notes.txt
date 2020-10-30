@@ -54,3 +54,5 @@ if ( $serv->have_posts() ) : while ( $serv->have_posts() ) : $serv->the_post();
 
 
 _______________________________
+
+style="background-color:<?php the_field('event_color');?>; margin: 30px 20px; padding:0 !important;">

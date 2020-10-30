@@ -2791,12 +2791,13 @@ get_header();
 if ($blog_page->have_posts()): while ($blog_page->have_posts()): $blog_page->the_post();
         $cat = get_the_category();?>
 						    <div class = "container">
-		              <div class = "row blog_col justify-content-center" style="background-color:<?php the_field('event_color');?>; margin: 30px 20px; padding:0 !important;">
-		                <div class="img_hover" style="background-image:url(<?php the_field('event_image');?>)"></div>
+		              <div class = "row blog_col justify-content-center" >
+						<div class="fish_rod"></div>
+					 	<div class="img_hover" style="background-image:url(<?php the_field('event_image');?>)"></div>
 
 		                  <div class="col-12 home_event_details">
 		                    <div class="event_date"><?php the_field('event_date');?></div>
-		                    <div class="event_category"><?php echo $cat[0]->cat_name; ?></div>
+		                    <div class="event_category"><?php //echo $cat[0]->cat_name; ?></div>
 		                  </div>
 
 		                  <div class="col-12 agenda_title">

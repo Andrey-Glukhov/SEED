@@ -2221,7 +2221,7 @@ var controller = new ScrollMagic.Controller();
         }
 
       //sceneLeft =  createScene('.page_block',100, '#services_svg',{attr: {viewBox: "" +bg_width/4 + " " + bg_height/4 + " " +bg_width/2 + " " + bg_height/2}});
-	  sceneLeft =  createScene('.page_block',100, '#services_svg',{attr: {viewBox: "480 270 960 540"}});
+	  sceneLeft =  createScene('.page_block',100, '#services_svg',{attr: {viewBox: "640 230 680 400"}});
 
 });
 
